@@ -24,8 +24,11 @@ public class BagPanel : MonoBehaviour {
 
     }
     // Use this for initialization
-    void Start () {
-		
+    void Start ()
+    {
+        StartCoroutine(PicLoader.Instance.Load(grids[0].GetComponent<BagItem>().GetImage(), "Image/Item/anshuijing.JPG"));
+        grids[0].GetComponent<BagItem>().UpdateText("大还丹");
+        Debug.Log("Load Image");
 	}
 	
 	// Update is called once per frame

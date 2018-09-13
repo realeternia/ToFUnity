@@ -20,10 +20,9 @@ public class BagItem : MonoBehaviour {
        
     }
 
-    public void UpdateImage(Sprite img)
+    public Image GetImage()
     {
-        var imgC = this.transform.GetComponentInChildren<Image>();
-        imgC.sprite = img;
+        return this.transform.GetComponentInChildren<Image>();
     }
     public void UpdateText(string txt)
     {
