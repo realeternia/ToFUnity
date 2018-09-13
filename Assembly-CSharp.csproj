@@ -49,6 +49,8 @@
      <Compile Include="Assets\Scripts\DGToF\ForceResolution.cs" />
      <Compile Include="Assets\Scripts\DGToF\GeneralEffects\TextFly.cs" />
      <Compile Include="Assets\Scripts\DGToF\Login\ClickLogin.cs" />
+     <Compile Include="Assets\Scripts\DGToF\MainScene\BagItem.cs" />
+     <Compile Include="Assets\Scripts\DGToF\MainScene\BagPanel.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
