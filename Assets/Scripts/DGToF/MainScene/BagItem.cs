@@ -7,8 +7,8 @@ public class BagItem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        transform.GetComponent<Button>().onClick.AddListener(OnClick);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -17,12 +17,13 @@ public class BagItem : MonoBehaviour {
 
     void OnClick()
     {
-       
+        StartCoroutine(PicLoader.Instance.Load(GetImage(), "Image/Item/anshuijing.JPG"));
+        UpdateText("大还丹");
     }
 
     public Image GetImage()
     {
-        return this.transform.GetComponentInChildren<Image>();
+        return this.transform.Find("CellImg").GetComponentInChildren<Image>();
     }
     public void UpdateText(string txt)
     {
