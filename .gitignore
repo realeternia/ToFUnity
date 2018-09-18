@@ -57,3 +57,6 @@ ExportedObj/
 *.app
 
 *.exe
+/ConfigData/ConfigData
+/ConfigData/ExcelToCsv.pdb
+/ConfigData/ConfigData.dll
