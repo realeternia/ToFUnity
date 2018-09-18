@@ -17,7 +17,7 @@ public class BagItem : MonoBehaviour {
 
     void OnClick()
     {
-        StartCoroutine(PicLoader.Instance.Load(GetImage(), "Image/Item/anshuijing.JPG"));
+        UpdateImage("anshuijing");
         UpdateText("大还丹");
     }
 
@@ -29,5 +29,9 @@ public class BagItem : MonoBehaviour {
     {
         var textC = this.transform.GetComponentInChildren<Text>();
         textC.text = txt;
+    }
+    public void UpdateImage(string txt)
+    {
+        StartCoroutine(PicLoader.Instance.Load(GetImage(), string.Format("Image/Item/{0}.jpg", txt)));
     }
 }

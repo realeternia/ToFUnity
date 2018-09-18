@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A0EF21F1-C119-F8A5-423E-33B0989A0DFA}</ProjectGuid>
+    <ProjectGuid>{12F44184-A422-5F27-22E6-507969043F15}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -57,11 +57,12 @@
      <Compile Include="Assets\Scripts\DGToF\MainScene\BagItem.cs" />
      <Compile Include="Assets\Scripts\DGToF\MainScene\BagPanel.cs" />
      <Compile Include="Assets\Scripts\DGToF\PicLoader.cs" />
+     <Compile Include="Assets\Scripts\DGToF\Startuper.cs" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>D:/用户目录/我的文档/TalesOfFate/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>D:/用户目录/我的文档/TalesOfFate/Client/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>D:/用户目录/我的文档/TalesOfFate/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>D:/用户目录/我的文档/TalesOfFate/Client/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>d:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -257,6 +258,9 @@
  </Reference>
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>d:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="ConfigData">
+ <HintPath>D:/用户目录/我的文档/TalesOfFate/Client/Assets/plugins/ConfigData.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
