@@ -4,19 +4,19 @@
 
 #Unity
 
-/[Ll]ibrary/
+/Client/[Ll]ibrary/
 
-/[Tt]emp/
+/Client/[Tt]emp/
 
-/[Oo]bj/
+/Client/[Oo]bj/
 
-/[Bb]uild/
+/Client/[Bb]uild/
 
-/[Bb]uilds/
+/Client/[Bb]uilds/
 
-/Release/
+/Client/Release/
 
-/Assets/AssetStoreTools*
+/Client/Assets/AssetStoreTools*
 
 sysinfo.txt
 
@@ -31,12 +31,6 @@ ExportedObj/
 .consulo/
 
 .idea/
-
-*.csproj
-
-*.unityproj
-
-*.sln
 
 *.suo
 
