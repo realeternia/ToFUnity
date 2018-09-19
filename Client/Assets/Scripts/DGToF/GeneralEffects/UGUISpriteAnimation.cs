@@ -46,7 +46,7 @@ public class UGUISpriteAnimation : MonoBehaviour
     private void SetSprite(int idx)
     {
         ImageSource.sprite = SpriteFrames[idx];
-        ImageSource.SetNativeSize();
+   //     ImageSource.SetNativeSize();
     }
 
     public void Play()

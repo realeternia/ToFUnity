@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\DGToF\Login\ClickLogin.cs" />
      <Compile Include="Assets\Scripts\DGToF\MainScene\BagItem.cs" />
      <Compile Include="Assets\Scripts\DGToF\MainScene\BagPanel.cs" />
+     <Compile Include="Assets\Scripts\DGToF\MainScene\ToolbarPanel.cs" />
      <Compile Include="Assets\Scripts\DGToF\PicLoader.cs" />
      <Compile Include="Assets\Scripts\DGToF\Startuper.cs" />
  <Reference Include="UnityEditor.StandardEvents">
