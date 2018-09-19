@@ -55,5 +55,6 @@ public class BagPanel : MonoBehaviour
         {
             Destroy(transform.GetChild(i).gameObject);
         }
+        transform.parent = null;
     }
 }

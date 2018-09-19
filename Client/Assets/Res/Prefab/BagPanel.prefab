@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 114522705817386184}
   - component: {fileID: 114950957100617910}
   m_Layer: 0
-  m_Name: ScrollPanel (1)
+  m_Name: ScrollPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
