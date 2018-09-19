@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\DGToF\ForceResolution.cs" />
      <Compile Include="Assets\Scripts\DGToF\GeneralEffects\TextFly.cs" />
+     <Compile Include="Assets\Scripts\DGToF\GeneralEffects\UGUISpriteAnimation.cs" />
      <Compile Include="Assets\Scripts\DGToF\Login\ClickLogin.cs" />
      <Compile Include="Assets\Scripts\DGToF\MainScene\BagItem.cs" />
      <Compile Include="Assets\Scripts\DGToF\MainScene\BagPanel.cs" />

@@ -102,9 +102,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
-        width: 128
-        height: 128
+        y: 450
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,7 +112,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd3ac041c53bfbd41a1cbaefbbe98a7f
+      spriteID: 9113d9084df15a945b3667965920c6d1
       vertices: []
       indices: 
       edges: []
@@ -121,10 +121,10 @@ TextureImporter:
       name: eff_edge_effect00_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
-        width: 128
-        height: 128
+        x: 150
+        y: 450
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,7 +132,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b42a2fe22bc17c44e981fce2db0e1f15
+      spriteID: f2fbe8d827a93fa46bc527775a1ece1a
       vertices: []
       indices: 
       edges: []
@@ -141,10 +141,10 @@ TextureImporter:
       name: eff_edge_effect00_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
-        width: 128
-        height: 128
+        x: 300
+        y: 450
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,7 +152,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9f95fc7374baf94995c3b6af4376335
+      spriteID: a43734dd0cf3e234580a996f200dbc6a
       vertices: []
       indices: 
       edges: []
@@ -161,10 +161,10 @@ TextureImporter:
       name: eff_edge_effect00_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
-        width: 128
-        height: 128
+        x: 450
+        y: 450
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,7 +172,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47160ddcd044baa48b283d03f7a02f18
+      spriteID: 1f03dd0a3a8991c4fa93102a1ac7c8f7
       vertices: []
       indices: 
       edges: []
@@ -182,9 +182,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 128
-        height: 128
+        y: 300
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,7 +192,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b14bd6544029bb4db57518ff8eb0086
+      spriteID: 85b713d5f6917cb40875e43940f25a4e
       vertices: []
       indices: 
       edges: []
@@ -201,10 +201,10 @@ TextureImporter:
       name: eff_edge_effect00_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
+        x: 150
+        y: 300
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,7 +212,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e336c9652aa9254bbb0979b8465cb28
+      spriteID: 50dce5d202dc29b4a95e19a66b344985
       vertices: []
       indices: 
       edges: []
@@ -221,10 +221,10 @@ TextureImporter:
       name: eff_edge_effect00_6
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
+        x: 300
+        y: 300
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,7 +232,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adfe35259a27ecb4eb5a49a7c7c1c7aa
+      spriteID: 623418141fc24a3419f511baeceb77fa
       vertices: []
       indices: 
       edges: []
@@ -241,10 +241,10 @@ TextureImporter:
       name: eff_edge_effect00_7
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
+        x: 450
+        y: 300
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,7 +252,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 135fc6147a6fcd24cb799c35becafc89
+      spriteID: c99980cd6a5cab2468177bdd77a20b34
       vertices: []
       indices: 
       edges: []
@@ -262,9 +262,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 128
-        height: 128
+        y: 150
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,7 +272,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f05d6f70ad4f3a94db552206bc9c4954
+      spriteID: b4aa75b58265d1a41bdf640a021ece6f
       vertices: []
       indices: 
       edges: []
@@ -281,10 +281,10 @@ TextureImporter:
       name: eff_edge_effect00_9
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
+        x: 150
+        y: 150
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,7 +292,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1322a4c2e3506042a1009d9ccb2e93f
+      spriteID: 5de5b845045589a49b43208ef8516e75
       vertices: []
       indices: 
       edges: []
@@ -301,10 +301,10 @@ TextureImporter:
       name: eff_edge_effect00_10
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
+        x: 300
+        y: 150
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,7 +312,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ece96708d411f9046b480477755f2bd5
+      spriteID: 543748b7b6f2e6b439993c1477dd00a2
       vertices: []
       indices: 
       edges: []
@@ -321,10 +321,10 @@ TextureImporter:
       name: eff_edge_effect00_11
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
+        x: 450
+        y: 150
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,7 +332,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39cf6a2ef8a6337439d2cd532e568268
+      spriteID: 2c792afeea6363f4a91b2fddfe7f4cd0
       vertices: []
       indices: 
       edges: []
@@ -343,8 +343,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -352,7 +352,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89d5ed9f985872c45b9d850e21410f36
+      spriteID: 313cd04ea9ac0c045956b04aed773289
       vertices: []
       indices: 
       edges: []
@@ -361,10 +361,10 @@ TextureImporter:
       name: eff_edge_effect00_13
       rect:
         serializedVersion: 2
-        x: 128
+        x: 150
         y: 0
-        width: 128
-        height: 128
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,7 +372,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5de6e4bcba768bb4b98d35aaf4841332
+      spriteID: 714f3007648ca8945a231f88df0ccf25
       vertices: []
       indices: 
       edges: []
@@ -381,10 +381,10 @@ TextureImporter:
       name: eff_edge_effect00_14
       rect:
         serializedVersion: 2
-        x: 256
+        x: 300
         y: 0
-        width: 128
-        height: 128
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,7 +392,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a2f517711e86eb488e8638b2ef2d7f3
+      spriteID: 6cafa1dae5153d6458efd1e8832ab5bb
       vertices: []
       indices: 
       edges: []
@@ -401,10 +401,10 @@ TextureImporter:
       name: eff_edge_effect00_15
       rect:
         serializedVersion: 2
-        x: 384
+        x: 450
         y: 0
-        width: 128
-        height: 128
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,7 +412,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3ee17ed6df17554fa03e1ddf653729d
+      spriteID: 78ed90024292ea94a8d53be9ac92c918
       vertices: []
       indices: 
       edges: []
