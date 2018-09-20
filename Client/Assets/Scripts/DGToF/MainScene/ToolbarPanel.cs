@@ -20,9 +20,6 @@ public class ToolbarPanel : MonoBehaviour {
     private void OnBtn1Click()
     {
         var panelContainer = transform.parent.Find("PanelContainer");
-        var appleGO = Instantiate(bagPanelType, new Vector3(0, 0, 0), Quaternion.identity);
-        appleGO.transform.SetParent(panelContainer);
-        appleGO.transform.localScale = Vector3.one;
-        appleGO.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+        Instantiate(bagPanelType, panelContainer);
     }
 }
