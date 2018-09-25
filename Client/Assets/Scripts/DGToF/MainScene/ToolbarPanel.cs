@@ -19,7 +19,6 @@ public class ToolbarPanel : MonoBehaviour {
 
     private void OnBtn1Click()
     {
-        var panelContainer = transform.parent.Find("PanelContainer");
-        Instantiate(bagPanelType, panelContainer);
+        PanelContainer.Instance.Add(bagPanelType);
     }
 }

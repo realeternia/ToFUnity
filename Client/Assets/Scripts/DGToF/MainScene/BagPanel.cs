@@ -51,10 +51,6 @@ public class BagPanel : MonoBehaviour
 
     void OnCloseClick()
     {
-        for (int i = transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(transform.GetChild(i).gameObject);
-        }
-        transform.parent = null;
+        PanelContainer.Instance.Remove(transform);
     }
 }
