@@ -268,6 +268,9 @@
  <Reference Include="ConfigData">
  <HintPath>D:/用户目录/我的文档/TalesOfFate/Client/Assets/plugins/ConfigData.dll</HintPath>
  </Reference>
+ <Reference Include="NarlonLib">
+ <HintPath>D:/用户目录/我的文档/TalesOfFate/Client/Assets/plugins/NarlonLib.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
  </Reference>
@@ -276,9 +279,6 @@
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
- </Reference>
- <Reference Include="NarlonLib">
- <HintPath>D:/用户目录/我的文档/TalesOfFate/Client/Assets/plugins/NarlonLib.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>d:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
@@ -307,6 +307,10 @@
  <Reference Include="Boo.Lang">
  <HintPath>d:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{079D398E-4AFC-CD7E-7881-F923D075EBD1}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

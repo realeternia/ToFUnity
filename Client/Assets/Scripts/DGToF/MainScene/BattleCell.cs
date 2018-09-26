@@ -26,11 +26,21 @@ public class BattleCell : MonoBehaviour {
         }
 
         cell.IsHide = false;
+
+        StartCoroutine(PicLoader.Instance.Load(cardImg, string.Format("Image/Monsters/1.jpg")));
+
+        // iTween.ShakePosition(gameObject, new Vector3(0, 0.1f, 0), 1);
+        iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
+        StartCoroutine(LateColor());
+    }
+
+    IEnumerator LateColor()
+    {
+        yield return new WaitForSeconds(.8f);
+        var cell = MatchManager.Instance.GetCell(Id);
         if (cell.Side == 1)
             render.color = Color.red;
         else
             render.color = Color.blue;
-
-        StartCoroutine(PicLoader.Instance.Load(cardImg, string.Format("Image/Monsters/1.jpg")));
     }
 }
