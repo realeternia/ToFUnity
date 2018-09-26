@@ -4,13 +4,19 @@ using ConfigDatas;
 using UnityEngine;
 
 public class BattleCell : MonoBehaviour {
+
     private SpriteRenderer render;
     private SpriteRenderer cardImg;
-    public int Id;
+    private TextMesh hpText;
+    private TextMesh strText;
+    public int Id; //cellId
+    public int MonsterId;
     // Use this for initialization
     void Start () {
         render = GetComponent<SpriteRenderer>();
         cardImg = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        hpText = transform.Find("Blood").GetChild(0).GetComponent<TextMesh>();
+        strText = transform.Find("Str").GetChild(0).GetComponent<TextMesh>();
     }
 	
 	// Update is called once per frame
@@ -27,9 +33,12 @@ public class BattleCell : MonoBehaviour {
         }
 
         cell.IsHide = false;
+
         transform.Find("Blood").gameObject.SetActive(true);
-        
-        MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(cell.MonsterId);
+        transform.Find("Str").gameObject.SetActive(true);
+
+        MonsterId = cell.MonsterId;
+        MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
         //Debug.Log("aaaa" + Id + "aaa" + cell.MonsterId + monsterConfig.Name);
         StartCoroutine(PicLoader.Instance.Load(cardImg, string.Format("Image/Monsters/{0}.jpg", monsterConfig.Url)));
 
@@ -46,5 +55,18 @@ public class BattleCell : MonoBehaviour {
             render.color = Color.red;
         else
             render.color = Color.blue;
+
+        MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
+        UpdateStr(monsterConfig.Atk);
+        UpdateHp(monsterConfig.Hp);
+    }
+
+    public void UpdateStr(int str)
+    {
+        strText.text = str.ToString();
+    }
+    public void UpdateHp(int hp)
+    {
+        hpText.text = hp.ToString();
     }
 }
