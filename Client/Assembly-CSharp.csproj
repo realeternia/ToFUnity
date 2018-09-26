@@ -280,6 +280,12 @@
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
+ <Reference Include="log4net">
+ <HintPath>D:/用户目录/我的文档/TalesOfFate/Client/Assets/plugins/log4net.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Drawing">
+ <HintPath>D:/用户目录/我的文档/TalesOfFate/Client/Assets/plugins/System.Drawing.dll</HintPath>
+ </Reference>
  <Reference Include="mscorlib">
  <HintPath>d:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
  </Reference>

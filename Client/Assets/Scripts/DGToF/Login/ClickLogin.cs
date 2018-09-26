@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ClickLogin : MonoBehaviour {
@@ -18,6 +19,6 @@ public class ClickLogin : MonoBehaviour {
 
     void OnClick()
     {
-        Application.LoadLevel("Town");
+        SceneManager.LoadScene("Town");
     }
 }
