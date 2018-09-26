@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ConfigDatas;
 using NarlonLib.Tools;
 using UnityEngine;
 
@@ -13,7 +14,9 @@ public class MatchManager {
         public int Pos;
         public byte Side; //1 & 2
         public int MonsterId;
+
         public bool IsHide;
+        public int HpLeft;
     }
 
     private List<MatchCellInfo> itemList = new List<MatchCellInfo>();
@@ -21,9 +24,15 @@ public class MatchManager {
     public void Init()
     {
         for (int i = 0; i < 17; i++)
-            itemList.Add(new MatchCellInfo { Id = i+100, Side = 1, IsHide = true, MonsterId = 41000001});
+        {
+            MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(41000001);
+            itemList.Add(new MatchCellInfo {Id = i + 100, Side = 1, IsHide = true, MonsterId = monsterConfig.Id, HpLeft = monsterConfig.Hp});
+        }
         for (int i = 0; i < 18; i++)
-            itemList.Add(new MatchCellInfo { Id=i+200, Side = 2, IsHide = true, MonsterId = 41000001 });
+        {
+            MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(41000001);
+            itemList.Add(new MatchCellInfo {Id = i + 200, Side = 2, IsHide = true, MonsterId = monsterConfig.Id, HpLeft = monsterConfig.Hp });
+        }
         ArraysUtils.RandomShuffle(itemList);
 
         for (int i = 0; i < 35; i++)

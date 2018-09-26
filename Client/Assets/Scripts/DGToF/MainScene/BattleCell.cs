@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ConfigDatas;
 using UnityEngine;
 
 public class BattleCell : MonoBehaviour {
@@ -26,8 +27,11 @@ public class BattleCell : MonoBehaviour {
         }
 
         cell.IsHide = false;
-
-        StartCoroutine(PicLoader.Instance.Load(cardImg, string.Format("Image/Monsters/1.jpg")));
+        transform.Find("Blood").gameObject.SetActive(true);
+        
+        MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(cell.MonsterId);
+        //Debug.Log("aaaa" + Id + "aaa" + cell.MonsterId + monsterConfig.Name);
+        StartCoroutine(PicLoader.Instance.Load(cardImg, string.Format("Image/Monsters/{0}.jpg", monsterConfig.Url)));
 
         // iTween.ShakePosition(gameObject, new Vector3(0, 0.1f, 0), 1);
         iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
@@ -36,7 +40,7 @@ public class BattleCell : MonoBehaviour {
 
     IEnumerator LateColor()
     {
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSeconds(.6f);
         var cell = MatchManager.Instance.GetCell(Id);
         if (cell.Side == 1)
             render.color = Color.red;
