@@ -11,12 +11,15 @@ public class BattleCell : MonoBehaviour {
     private TextMesh strText;
     public int Id; //cellId
     public int MonsterId;
+
+    private BattlePanel panel;
     // Use this for initialization
     void Start () {
         render = GetComponent<SpriteRenderer>();
         cardImg = transform.GetChild(0).GetComponent<SpriteRenderer>();
         hpText = transform.Find("Blood").GetChild(0).GetComponent<TextMesh>();
         strText = transform.Find("Str").GetChild(0).GetComponent<TextMesh>();
+        panel = transform.parent.GetComponent<BattlePanel>();
     }
 	
 	// Update is called once per frame
@@ -26,25 +29,29 @@ public class BattleCell : MonoBehaviour {
 
     void OnMouseUp()
     {
-        var cell = MatchManager.Instance.GetCell(Id);
-        if (!cell.IsHide)
+        if (panel.GetShine() != gameObject)
         {
+            panel.SetShine(Id); //先给选中框
             return;
         }
 
-        cell.IsHide = false;
+        var cell = MatchManager.Instance.GetCell(Id);
+        if (cell.IsHide) //翻开
+        {
+            cell.IsHide = false;
 
-        transform.Find("Blood").gameObject.SetActive(true);
-        transform.Find("Str").gameObject.SetActive(true);
+            transform.Find("Blood").gameObject.SetActive(true);
+            transform.Find("Str").gameObject.SetActive(true);
 
-        MonsterId = cell.MonsterId;
-        MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
-        //Debug.Log("aaaa" + Id + "aaa" + cell.MonsterId + monsterConfig.Name);
-        StartCoroutine(PicLoader.Instance.Load(cardImg, string.Format("Image/Monsters/{0}.jpg", monsterConfig.Url)));
+            MonsterId = cell.MonsterId;
+            MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
+            //Debug.Log("aaaa" + Id + "aaa" + cell.MonsterId + monsterConfig.Name);
+            StartCoroutine(PicLoader.Instance.Load(cardImg, string.Format("Image/Monsters/{0}.jpg", monsterConfig.Url)));
 
-        // iTween.ShakePosition(gameObject, new Vector3(0, 0.1f, 0), 1);
-        iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
-        StartCoroutine(LateColor());
+            // iTween.ShakePosition(gameObject, new Vector3(0, 0.1f, 0), 1);
+            iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
+            StartCoroutine(LateColor());
+        }
     }
 
     IEnumerator LateColor()

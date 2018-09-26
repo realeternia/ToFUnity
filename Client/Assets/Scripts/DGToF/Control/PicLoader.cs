@@ -65,7 +65,7 @@ public class PicLoader
         sprR.sprite = sprite;
         imageCacheDict[path] = sprite;
 
-        Debug.Log("WWW load finish : " + fileAddress);
+        Debug.Log(string.Format("WWW load finish : {0} ({1}x{2})" , fileAddress, texture.texelSize.x, texture.texelSize.y));
         yield return null;
     }
 }

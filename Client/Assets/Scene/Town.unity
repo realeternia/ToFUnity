@@ -861,3 +861,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellType: {fileID: 1371743771626460, guid: 1ad8970604f526c4d90013c53a719057, type: 2}
+  glowObj: {fileID: 1220091104875592, guid: c59d651d98a9c7e4c8c6b3d7c4935a43, type: 2}
+  glowObjIns: {fileID: 0}

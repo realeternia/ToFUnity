@@ -5,6 +5,9 @@ using UnityEngine;
 public class BattlePanel : MonoBehaviour {
 
     public GameObject cellType;
+    public GameObject glowObj;
+
+    public GameObject glowObjIns;
 
     // Use this for initialization
     void Start () {
@@ -26,4 +29,43 @@ public class BattlePanel : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void SetShine(int id)
+    {
+        var selectCell = FindTarget(id);
+        if (selectCell == null)
+        {
+            return;
+        }
+
+        if (glowObjIns == null)
+        {
+            glowObjIns = Instantiate(glowObj, selectCell.transform);
+            glowObjIns.transform.localPosition = new Vector3(0, 0, -.1f);
+        }
+        else
+        {
+            glowObjIns.transform.SetParent(selectCell.transform);
+            glowObjIns.transform.localPosition = new Vector3(0, 0, -.1f);
+        }
+    }
+
+    public GameObject GetShine()
+    {
+        if (glowObjIns == null)
+            return null;
+
+        return glowObjIns.transform.parent.gameObject;
+    }
+
+    private GameObject FindTarget(int id)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var child = transform.GetChild(i);
+            if (child.GetComponent<BattleCell>().Id == id)
+                return child.gameObject;
+        }
+        return null;
+    }
 }
