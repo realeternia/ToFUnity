@@ -29,28 +29,49 @@ public class BattleCell : MonoBehaviour {
 
     void OnMouseUp()
     {
-        if (panel.GetShine() != gameObject)
+        var target = panel.GetShine();
+        if (target != gameObject)
         {
-            panel.SetShine(Id); //先给选中框
-            return;
+            if (target == null)
+            {
+                panel.SetShine(Id); //先给选中框    
+                return;
+            }
+
+            var targetCell = target.GetComponent<BattleCell>();
+            var nowCellInfo = MatchManager.Instance.GetCell(Id);
+            //    Debug.Log(string.Format("state id={0} side={1} hide={2}", nowCellInfo.Id, nowCellInfo.Side, nowCellInfo.IsHide));
+            if (nowCellInfo.IsHide)
+            {
+                panel.SetShine(Id); //先给选中框    
+            }
+            else
+            {
+                if (nowCellInfo.Side == 1)
+                    panel.SetShine(Id); //切换选中框    
+                else
+                    panel.Fight(targetCell, this);
+            }
         }
-
-        var cell = MatchManager.Instance.GetCell(Id);
-        if (cell.IsHide) //翻开
+        else
         {
-            cell.IsHide = false;
+            var cell = MatchManager.Instance.GetCell(Id);
+            if (cell.IsHide) //翻开
+            {
+                cell.IsHide = false;
 
-            transform.Find("Blood").gameObject.SetActive(true);
-            transform.Find("Str").gameObject.SetActive(true);
+                transform.Find("Blood").gameObject.SetActive(true);
+                transform.Find("Str").gameObject.SetActive(true);
 
-            MonsterId = cell.MonsterId;
-            MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
-            //Debug.Log("aaaa" + Id + "aaa" + cell.MonsterId + monsterConfig.Name);
-            StartCoroutine(PicLoader.Instance.Load(cardImg, string.Format("Image/Monsters/{0}.jpg", monsterConfig.Url)));
+                MonsterId = cell.MonsterId;
+                MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
+                //Debug.Log("aaaa" + Id + "aaa" + cell.MonsterId + monsterConfig.Name);
+                StartCoroutine(PicLoader.Instance.Load(cardImg, string.Format("Image/Monsters/{0}.jpg", monsterConfig.Url)));
 
-            // iTween.ShakePosition(gameObject, new Vector3(0, 0.1f, 0), 1);
-            iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
-            StartCoroutine(LateColor());
+                // iTween.ShakePosition(gameObject, new Vector3(0, 0.1f, 0), 1);
+                iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
+                StartCoroutine(LateColor());
+            }
         }
     }
 
