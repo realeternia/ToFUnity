@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\DGToF\Control\PicLoader.cs" />
      <Compile Include="Assets\Scripts\DGToF\ForceResolution.cs" />
      <Compile Include="Assets\Scripts\DGToF\GeneralEffects\TextFly.cs" />
+     <Compile Include="Assets\Scripts\DGToF\GeneralEffects\TextFlyHpLoss.cs" />
      <Compile Include="Assets\Scripts\DGToF\GeneralEffects\UGUISpriteAnimation.cs" />
      <Compile Include="Assets\Scripts\DGToF\Login\ClickLogin.cs" />
      <Compile Include="Assets\Scripts\DGToF\MainScene\BagItem.cs" />

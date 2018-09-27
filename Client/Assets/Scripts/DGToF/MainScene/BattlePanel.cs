@@ -103,5 +103,8 @@ public class BattlePanel : MonoBehaviour {
         paths = new Vector3[] { midPoint, defender.transform.position };
         args["path"] = paths;
         iTween.MoveTo(defender.gameObject, args);
+
+        attacker.LossHp(1);
+        defender.LossHp(1);
     }
 }

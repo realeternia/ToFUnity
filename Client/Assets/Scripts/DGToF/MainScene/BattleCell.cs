@@ -97,4 +97,10 @@ public class BattleCell : MonoBehaviour {
     {
         hpText.text = hp.ToString();
     }
+
+    public void LossHp(int val)
+    {
+        var loss = transform.Find("LossHp").GetComponent<TextFlyHpLoss>();
+        loss.Fly(string.Format("-{0}", val));
+    }
 }
