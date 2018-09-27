@@ -80,9 +80,9 @@ public class BattleCell : MonoBehaviour {
         yield return new WaitForSeconds(.6f);
         var cell = MatchManager.Instance.GetCell(Id);
         if (cell.Side == 1)
-            render.color = Color.red;
+            render.color = Color.green;
         else
-            render.color = Color.blue;
+            render.color = Color.red;
 
         MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
         UpdateStr(monsterConfig.Atk);

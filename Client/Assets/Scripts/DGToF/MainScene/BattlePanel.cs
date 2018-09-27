@@ -17,8 +17,8 @@ public class BattlePanel : MonoBehaviour {
         {
             for (int j = 0; j < 7; j++)
             {
-                var appleGO = Instantiate(cellType, new Vector3(-1.46f + i*0.7f, 2.45f - j*0.7f, 0), transform.localRotation);
-                   appleGO.transform.SetParent(transform);
+                var appleGO = Instantiate(cellType, transform);
+                   appleGO.transform.localPosition = new Vector3(-1.46f + i * 0.7f, 2.45f - j * 0.7f, 0);
                 appleGO.GetComponent<BattleCell>().Id = MatchManager.Instance.GetCellPos(i*7 + j).Id;
                 //   appleGO.transform.localScale = new Vector3(-1.46f + i, 2.15f + j, 1.0f);
             }
@@ -76,12 +76,12 @@ public class BattlePanel : MonoBehaviour {
 
         //这里是设置类型，iTween的类型又很多种，在源码中的枚举EaseType中
         //例如移动的特效，先震动在移动、先后退在移动、先加速在变速、等等
-     //   args.Add("easeType", iTween.EaseType.easeInOutExpo);
+        args.Add("easeType", iTween.EaseType.easeInOutExpo);
 
         //移动的速度，
       //  args.Add("speed", 0.3f);
         //移动的整体时间。如果与speed共存那么优先speed
-        args.Add("time", 1f);
+        args.Add("time", 0.7f);
         //延迟执行时间
         args.Add("delay", 0.1f);
         //移动的过程中面朝一个点
