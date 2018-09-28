@@ -105,8 +105,15 @@ public class BattlePanel : MonoBehaviour {
         args["path"] = paths;
         iTween.MoveTo(defender.gameObject, args);
 
+        StartCoroutine(LossHp(attacker, defender));
+    }
+
+    private IEnumerator LossHp(BattleCell attacker, BattleCell defender)
+    {
+        yield return new WaitForSeconds(0.4f);
+
         var damage = ConfigData.GetMonsterConfig(attacker.MonsterId).Atk;
-      //  attacker.LossHp(1);
+        //  attacker.LossHp(1);
         defender.LossHp(damage);
     }
 }

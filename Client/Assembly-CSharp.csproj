@@ -52,9 +52,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\DGToF\Control\ConfigDataManager.cs" />
+     <Compile Include="Assets\Scripts\DGToF\Control\EffectManager.cs" />
      <Compile Include="Assets\Scripts\DGToF\Control\MatchManager.cs" />
      <Compile Include="Assets\Scripts\DGToF\Control\PicLoader.cs" />
      <Compile Include="Assets\Scripts\DGToF\ForceResolution.cs" />
+     <Compile Include="Assets\Scripts\DGToF\GeneralEffects\AnimatorOnce.cs" />
      <Compile Include="Assets\Scripts\DGToF\GeneralEffects\TextFly.cs" />
      <Compile Include="Assets\Scripts\DGToF\GeneralEffects\TextFlyHpLoss.cs" />
      <Compile Include="Assets\Scripts\DGToF\GeneralEffects\UGUISpriteAnimation.cs" />

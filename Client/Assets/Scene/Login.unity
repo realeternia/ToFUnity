@@ -758,7 +758,6 @@ GameObject:
   - component: {fileID: 1396352851}
   - component: {fileID: 1396352852}
   - component: {fileID: 1396352853}
-  - component: {fileID: 1396352854}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -838,21 +837,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swaySpeed: 1
   flyHeight: 0.3
---- !u!111 &1396352854
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1396352850}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 9ef3dec136585e44489f3d1bd2f94dcd, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 9ef3dec136585e44489f3d1bd2f94dcd, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &1759032958
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +860,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1759032958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.156, y: -0.073, z: 0}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1964695708}

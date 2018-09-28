@@ -161,5 +161,9 @@ public class BattleCell : MonoBehaviour {
             transform.Find("Str").gameObject.SetActive(false);
             raceImg.gameObject.SetActive(false);
         }
+
+        //加载预设体资源
+        Instantiate(EffectManager.Instance.EffBlood, transform);
+
     }
 }
