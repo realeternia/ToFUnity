@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.DGToF.Control;
 using ConfigDatas;
 using NarlonLib.Tools;
 using UnityEngine;
@@ -23,15 +24,11 @@ public class MatchManager {
 
     public void Init()
     {
-        for (int i = 0; i < 17; i++)
+        foreach (var tacticConfig in ConfigData.BattleTacticDict.Values)
         {
-            MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(41000001);
-            itemList.Add(new MatchCellInfo {Id = i + 100, Side = 1, IsHide = true, MonsterId = monsterConfig.Id, HpLeft = monsterConfig.Hp});
-        }
-        for (int i = 0; i < 18; i++)
-        {
-            MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(41000001);
-            itemList.Add(new MatchCellInfo {Id = i + 200, Side = 2, IsHide = true, MonsterId = monsterConfig.Id, HpLeft = monsterConfig.Hp });
+            var randMonId = ConfigDataManager.GetRandMonsterId(tacticConfig.Group);
+            MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(randMonId);
+            itemList.Add(new MatchCellInfo { Id = tacticConfig.CellId, Side = (byte)tacticConfig.Side, IsHide = true, MonsterId = monsterConfig.Id, HpLeft = monsterConfig.Hp });
         }
         ArraysUtils.RandomShuffle(itemList);
 

@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\DGToF\Control\ConfigDataManager.cs" />
      <Compile Include="Assets\Scripts\DGToF\Control\MatchManager.cs" />
      <Compile Include="Assets\Scripts\DGToF\Control\PicLoader.cs" />
      <Compile Include="Assets\Scripts\DGToF\ForceResolution.cs" />
