@@ -73,6 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224964361351117796}
   - component: {fileID: 212175346372164514}
+  - component: {fileID: 114289922891851976}
   m_Layer: 0
   m_Name: Race
   m_TagString: Untagged
@@ -139,6 +140,7 @@ GameObject:
   - component: {fileID: 224871851562707144}
   - component: {fileID: 212542629160556904}
   - component: {fileID: 331566203546799838}
+  - component: {fileID: 114312672814448346}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -352,6 +354,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0
   MonsterId: 0
+--- !u!114 &114289922891851976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524590438620502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8968f01c47bd480488a9532c1a363557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: MonGroup
+--- !u!114 &114312672814448346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863653409811636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8968f01c47bd480488a9532c1a363557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: Monsters
 --- !u!114 &114690205496314488
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\DGToF\MainScene\PanelContainer.cs" />
      <Compile Include="Assets\Scripts\DGToF\MainScene\ToolbarPanel.cs" />
      <Compile Include="Assets\Scripts\DGToF\Startuper.cs" />
+     <Compile Include="Assets\Scripts\DGToF\Tool\AutoSpriteLoader.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/用户目录/我的文档/TalesOfFate/Client/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

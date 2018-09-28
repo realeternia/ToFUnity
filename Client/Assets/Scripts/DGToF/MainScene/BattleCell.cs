@@ -75,8 +75,9 @@ public class BattleCell : MonoBehaviour {
                 MonsterId = cell.MonsterId;
                 MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
                 //Debug.Log("aaaa" + Id + "aaa" + cell.MonsterId + monsterConfig.Name);
-                StartCoroutine(PicLoader.Instance.Load(cardImg, string.Format("Image/Monsters/{0}.jpg", monsterConfig.Url)));
-                StartCoroutine(PicLoader.Instance.Load(raceImg, string.Format("Image/MonGroup/chessg{0}.png", monsterConfig.Group)));
+
+                transform.GetChild(0).GetComponent<AutoSpriteLoader>().Load(monsterConfig.Url + ".jpg");
+                transform.Find("Race").GetComponent<AutoSpriteLoader>().Load(string.Format("chessg{0}.png", monsterConfig.Group));
                 
                 // iTween.ShakePosition(gameObject, new Vector3(0, 0.1f, 0), 1);
                 iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
