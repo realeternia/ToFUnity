@@ -49,8 +49,15 @@ public class BattleCell : MonoBehaviour {
             {
                 if (nowCellInfo.Side == 1)
                     panel.SetShine(Id); //切换选中框    
-                else
+                else if (nowCellInfo.Side == 2)
                     panel.Fight(targetCell, this);
+                else //交换位置
+                {
+                    var myPos = MatchManager.Instance.GetCell(Id).Pos;
+                    var tarPos = MatchManager.Instance.GetCell(targetCell.Id).Pos;
+                    targetCell.MoveTo(myPos);
+                    MoveTo(tarPos);
+                }
             }
         }
         else
@@ -98,9 +105,56 @@ public class BattleCell : MonoBehaviour {
         hpText.text = hp.ToString();
     }
 
+    public void UpdatePos(int posId)
+    {
+        var chessObj = MatchManager.Instance.GetCell(Id);
+        chessObj.Pos = posId;
+        transform.localPosition = new Vector3(-1.46f + posId % 5 * 0.7f, 2.45f - posId / 5 * 0.7f, 0);
+    }
+
+    public void MoveTo(int posId)
+    {
+        var chessObj = MatchManager.Instance.GetCell(Id);
+        chessObj.Pos = posId;
+        MoveTo(new Vector3(-1.46f + posId % 5 * 0.7f, 2.45f - posId / 5 * 0.7f, 0));
+    }
+
+    private void MoveTo(Vector3 targetPos)
+    {
+        Hashtable args = new Hashtable();
+
+        //这里是设置类型，iTween的类型又很多种，在源码中的枚举EaseType中
+        //例如移动的特效，先震动在移动、先后退在移动、先加速在变速、等等
+        args.Add("easeType", iTween.EaseType.linear);
+
+        //移动的速度，
+        //  args.Add("speed", 0.3f);
+        //移动的整体时间。如果与speed共存那么优先speed
+        args.Add("time", 0.4f);
+        //延迟执行时间
+       // args.Add("delay", 0.1f);
+
+        //当然也可以写Vector3
+         args.Add("position", targetPos);
+
+        iTween.MoveTo(gameObject, args);
+    }
+
     public void LossHp(int val)
     {
         var loss = transform.Find("LossHp").GetComponent<TextFlyHpLoss>();
         loss.Fly(string.Format("-{0}", val));
+
+        var chessObj = MatchManager.Instance.GetCell(Id);
+        chessObj.HpLeft -= val;
+        UpdateHp(chessObj.HpLeft); //todo event driving
+        if (chessObj.HpLeft <= 0)
+        {
+            chessObj.Side = 0;
+            render.color = Color.gray; //隐藏起来
+            cardImg.sprite = null;
+            transform.Find("Blood").gameObject.SetActive(false);
+            transform.Find("Str").gameObject.SetActive(false);
+        }
     }
 }

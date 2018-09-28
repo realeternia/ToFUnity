@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ConfigDatas;
 using UnityEngine;
 
 public class BattlePanel : MonoBehaviour {
@@ -18,9 +19,9 @@ public class BattlePanel : MonoBehaviour {
             for (int j = 0; j < 7; j++)
             {
                 var appleGO = Instantiate(cellType, transform);
-                   appleGO.transform.localPosition = new Vector3(-1.46f + i * 0.7f, 2.45f - j * 0.7f, 0);
-                appleGO.GetComponent<BattleCell>().Id = MatchManager.Instance.GetCellPos(i*7 + j).Id;
-                //   appleGO.transform.localScale = new Vector3(-1.46f + i, 2.15f + j, 1.0f);
+                var cell = appleGO.GetComponent<BattleCell>();
+                cell.Id = MatchManager.Instance.GetCellPos(i * 7 + j).Id;
+                cell.UpdatePos(i * 7 + j);
             }
         }
 	}
@@ -104,7 +105,8 @@ public class BattlePanel : MonoBehaviour {
         args["path"] = paths;
         iTween.MoveTo(defender.gameObject, args);
 
-        attacker.LossHp(1);
-        defender.LossHp(1);
+        var damage = ConfigData.GetMonsterConfig(attacker.MonsterId).Atk;
+      //  attacker.LossHp(1);
+        defender.LossHp(damage);
     }
 }
