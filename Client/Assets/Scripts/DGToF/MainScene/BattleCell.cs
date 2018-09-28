@@ -7,6 +7,7 @@ public class BattleCell : MonoBehaviour {
 
     private SpriteRenderer render;
     private SpriteRenderer cardImg;
+    private SpriteRenderer raceImg;
     private TextMesh hpText;
     private TextMesh strText;
     public int Id; //cellId
@@ -20,6 +21,7 @@ public class BattleCell : MonoBehaviour {
         hpText = transform.Find("Blood").GetChild(0).GetComponent<TextMesh>();
         strText = transform.Find("Str").GetChild(0).GetComponent<TextMesh>();
         panel = transform.parent.GetComponent<BattlePanel>();
+        raceImg = transform.Find("Race").GetComponent<SpriteRenderer>();
     }
 	
 	// Update is called once per frame
@@ -74,7 +76,8 @@ public class BattleCell : MonoBehaviour {
                 MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
                 //Debug.Log("aaaa" + Id + "aaa" + cell.MonsterId + monsterConfig.Name);
                 StartCoroutine(PicLoader.Instance.Load(cardImg, string.Format("Image/Monsters/{0}.jpg", monsterConfig.Url)));
-
+                StartCoroutine(PicLoader.Instance.Load(raceImg, string.Format("Image/MonGroup/chessg{0}.png", monsterConfig.Group)));
+                
                 // iTween.ShakePosition(gameObject, new Vector3(0, 0.1f, 0), 1);
                 iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
                 StartCoroutine(LateColor());
@@ -155,6 +158,7 @@ public class BattleCell : MonoBehaviour {
             cardImg.sprite = null;
             transform.Find("Blood").gameObject.SetActive(false);
             transform.Find("Str").gameObject.SetActive(false);
+            raceImg.gameObject.SetActive(false);
         }
     }
 }
