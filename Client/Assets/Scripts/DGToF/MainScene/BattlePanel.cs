@@ -113,8 +113,16 @@ public class BattlePanel : MonoBehaviour {
         yield return new WaitForSeconds(0.4f);
 
         var damage = ConfigData.GetMonsterConfig(attacker.MonsterId).Atk;
-        //  attacker.LossHp(1);
-        defender.LossHp(damage);
+        if (defender.LossHp(damage))
+            ExchangePos(attacker, defender); //死亡直接交换位置
+    }
+
+    public void ExchangePos(BattleCell cellA, BattleCell cellB)
+    {
+        var myPos = MatchManager.Instance.GetCell(cellA.Id).Pos;
+        var tarPos = MatchManager.Instance.GetCell(cellB.Id).Pos;
+        cellA.MoveTo(tarPos);
+        cellB.MoveTo(myPos);
     }
 
     public void ShakeAll(int exceptId)

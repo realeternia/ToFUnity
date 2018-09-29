@@ -58,12 +58,7 @@ public class BattleCell : MonoBehaviour {
                 else if (nowCellInfo.Side == 2)
                     panel.Fight(targetCell, this);
                 else //交换位置
-                {
-                    var myPos = MatchManager.Instance.GetCell(Id).Pos;
-                    var tarPos = MatchManager.Instance.GetCell(targetCell.Id).Pos;
-                    targetCell.MoveTo(myPos);
-                    MoveTo(tarPos);
-                }
+                    panel.ExchangePos(this, targetCell);
             }
         }
         else
@@ -95,15 +90,12 @@ public class BattleCell : MonoBehaviour {
 
     IEnumerator LateColor()
     {
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(.2f);
         var cell = MatchManager.Instance.GetCell(Id);
         if (cell.Side == 1)
             render.color = Color.green;
         else
             render.color = Color.red;
-
-      //  UpdateStr(monsterConfig.Atk);
-       // UpdateHp(monsterConfig.Hp);
     }
 
     public void UpdatePos(int posId)
@@ -141,20 +133,22 @@ public class BattleCell : MonoBehaviour {
         iTween.MoveTo(gameObject, args);
     }
 
-    public void LossHp(int val)
+    public bool LossHp(int val)
     {
         var loss = transform.Find("LossHp").GetComponent<TextFlyHpLoss>();
         loss.Fly(string.Format("-{0}", val));
 
         var chessObj = MatchManager.Instance.GetCell(Id);
         chessObj.HpLeft -= val;
-     //   UpdateHp(chessObj.HpLeft); //todo event driving
+
+        EffectManager.Instance.AddEffect(EffectManager.Instance.EffBlood, new Vector3(transform.position.x, transform.position.y, 0));
         if (chessObj.HpLeft <= 0)
         {
             OnDie(chessObj);
+            return true;
         }
 
-        EffectManager.Instance.AddEffect(EffectManager.Instance.EffBlood, new Vector3(transform.position.x, transform.position.y, 0));
+        return false;
     }
 
     private void OnDie(MatchManager.MatchCellInfo chessObj)

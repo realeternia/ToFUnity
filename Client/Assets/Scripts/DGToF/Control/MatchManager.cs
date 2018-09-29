@@ -40,8 +40,7 @@ public class MatchManager {
         foreach (var tacticConfig in ConfigData.BattleTacticDict.Values)
         {
             var randMonId = ConfigDataManager.GetRandMonsterId(tacticConfig.Group);
-            MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(randMonId);
-            itemList.Add(new MatchCellInfo { Id = tacticConfig.CellId, Side = (byte)tacticConfig.Side, IsHide = true, MonsterId = monsterConfig.Id, HpLeft = monsterConfig.Hp });
+            itemList.Add(new MatchCellInfo { Id = tacticConfig.CellId, Side = (byte)tacticConfig.Side, IsHide = true, MonsterId = randMonId });
         }
         ArraysUtils.RandomShuffle(itemList);
 
