@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.DGToF.Control;
 using ConfigDatas;
 using UnityEngine;
 
@@ -22,6 +23,9 @@ public class BattleCell : MonoBehaviour {
         strText = transform.Find("Str").GetChild(0).GetComponent<TextMesh>();
         panel = transform.parent.GetComponent<BattlePanel>();
         raceImg = transform.Find("Race").GetComponent<SpriteRenderer>();
+
+        MessageCenter.Instance.Subscribe("MatchCellInfo.HpLeft", Id, hpText.gameObject, hp => hpText.text = hp.ToString());
+        MessageCenter.Instance.Subscribe("MatchCellInfo.Str", Id, strText.gameObject, str => strText.text = str.ToString());
     }
 	
 	// Update is called once per frame
@@ -74,6 +78,8 @@ public class BattleCell : MonoBehaviour {
 
                 MonsterId = cell.MonsterId;
                 MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
+                cell.Str = monsterConfig.Atk;
+                cell.HpLeft = monsterConfig.Hp;
                 //Debug.Log("aaaa" + Id + "aaa" + cell.MonsterId + monsterConfig.Name);
 
                 transform.GetChild(0).GetComponent<AutoSpriteLoader>().Load(monsterConfig.Url + ".jpg");
@@ -96,18 +102,8 @@ public class BattleCell : MonoBehaviour {
         else
             render.color = Color.red;
 
-        MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
-        UpdateStr(monsterConfig.Atk);
-        UpdateHp(monsterConfig.Hp);
-    }
-
-    public void UpdateStr(int str)
-    {
-        strText.text = str.ToString();
-    }
-    public void UpdateHp(int hp)
-    {
-        hpText.text = hp.ToString();
+      //  UpdateStr(monsterConfig.Atk);
+       // UpdateHp(monsterConfig.Hp);
     }
 
     public void UpdatePos(int posId)
@@ -152,18 +148,26 @@ public class BattleCell : MonoBehaviour {
 
         var chessObj = MatchManager.Instance.GetCell(Id);
         chessObj.HpLeft -= val;
-        UpdateHp(chessObj.HpLeft); //todo event driving
+     //   UpdateHp(chessObj.HpLeft); //todo event driving
         if (chessObj.HpLeft <= 0)
         {
-            chessObj.Side = 0;
-            render.color = Color.gray; //隐藏起来
-            cardImg.sprite = null;
-            transform.Find("Blood").gameObject.SetActive(false);
-            transform.Find("Str").gameObject.SetActive(false);
-            raceImg.gameObject.SetActive(false);
+            OnDie(chessObj);
         }
 
         EffectManager.Instance.AddEffect(EffectManager.Instance.EffBlood, new Vector3(transform.position.x, transform.position.y, 0));
+    }
+
+    private void OnDie(MatchManager.MatchCellInfo chessObj)
+    {
+        chessObj.Side = 0;
+        render.color = Color.gray; //隐藏起来
+        cardImg.sprite = null;
+        transform.Find("Blood").gameObject.SetActive(false);
+        transform.Find("Str").gameObject.SetActive(false);
+        raceImg.gameObject.SetActive(false);
+
+        MessageCenter.Instance.Unsubscribe("MatchCellInfo.HpLeft", Id, hpText.gameObject);
+        MessageCenter.Instance.Unsubscribe("MatchCellInfo.Str", Id, strText.gameObject);
     }
 
     public void Shake()

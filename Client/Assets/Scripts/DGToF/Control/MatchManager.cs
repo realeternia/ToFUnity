@@ -17,7 +17,20 @@ public class MatchManager {
         public int MonsterId;
 
         public bool IsHide;
-        public int HpLeft;
+
+        private int str;
+        public int Str
+        {
+            get { return str; }
+            set { str = value; MessageCenter.Instance.Pubscribe("MatchCellInfo.Str", Id, str.ToString()); }
+        }
+
+        private int hpLeft;
+        public int HpLeft
+        {
+            get { return hpLeft; }
+            set { hpLeft = value; MessageCenter.Instance.Pubscribe("MatchCellInfo.HpLeft", Id, hpLeft.ToString()); }
+        }
     }
 
     private List<MatchCellInfo> itemList = new List<MatchCellInfo>();

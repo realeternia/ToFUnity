@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\DGToF\Control\ConfigDataManager.cs" />
      <Compile Include="Assets\Scripts\DGToF\Control\EffectManager.cs" />
      <Compile Include="Assets\Scripts\DGToF\Control\MatchManager.cs" />
+     <Compile Include="Assets\Scripts\DGToF\Control\MessageCenter.cs" />
      <Compile Include="Assets\Scripts\DGToF\Control\PicLoader.cs" />
      <Compile Include="Assets\Scripts\DGToF\ForceResolution.cs" />
      <Compile Include="Assets\Scripts\DGToF\GeneralEffects\AnimatorOnce.cs" />
