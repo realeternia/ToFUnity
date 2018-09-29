@@ -9,6 +9,7 @@ public class EffectManager : MonoBehaviour
 
     public GameObject EffBlood;
     public GameObject EffElect;
+    public GameObject EffFlameFall;
 
     // Use this for initialization
     void Start ()
@@ -21,4 +22,9 @@ public class EffectManager : MonoBehaviour
 	void Update () {
 		
 	}
+
+    public void AddEffect(GameObject eff, Vector3 pos)
+    {
+        Instantiate(eff, pos, transform.rotation, transform);
+    }
 }

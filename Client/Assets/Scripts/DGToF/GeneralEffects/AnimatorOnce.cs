@@ -17,7 +17,7 @@ public class AnimatorOnce : MonoBehaviour {
     {
         AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
         // 判断动画是否播放完成
-        if (info.normalizedTime >= 1.0f)
+        if (info.normalizedTime >= 0.9f)
         {
             this.transform.parent = null;
             Destroy(gameObject);

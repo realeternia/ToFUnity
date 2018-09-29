@@ -163,12 +163,13 @@ public class BattleCell : MonoBehaviour {
             raceImg.gameObject.SetActive(false);
         }
 
-        Instantiate(EffectManager.Instance.EffBlood, transform);
+        EffectManager.Instance.AddEffect(EffectManager.Instance.EffBlood, new Vector3(transform.position.x, transform.position.y, 0));
     }
 
     public void Shake()
     {
         iTween.ShakePosition(gameObject, new Vector3(0, 0.1f, 0), 1);
-        Instantiate(EffectManager.Instance.EffElect, transform);
+      //  EffectManager.Instance.AddEffect(EffectManager.Instance.EffFlameFall, new Vector3(transform.position.x, transform.position.y, 0));
+        //obj.transform.SetParent(panel.transform.parent.GetChild(2));
     }
 }
