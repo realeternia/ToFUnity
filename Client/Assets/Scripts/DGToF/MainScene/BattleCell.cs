@@ -79,9 +79,10 @@ public class BattleCell : MonoBehaviour {
                 transform.GetChild(0).GetComponent<AutoSpriteLoader>().Load(monsterConfig.Url + ".jpg");
                 transform.Find("Race").GetComponent<AutoSpriteLoader>().Load(string.Format("chessg{0}.png", monsterConfig.Group));
                 
-                // iTween.ShakePosition(gameObject, new Vector3(0, 0.1f, 0), 1);
                 iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
                 StartCoroutine(LateColor());
+
+                panel.ShakeAll(Id);
             }
         }
     }
@@ -164,6 +165,10 @@ public class BattleCell : MonoBehaviour {
 
         //加载预设体资源
         Instantiate(EffectManager.Instance.EffBlood, transform);
+    }
 
+    public void Shake()
+    {
+        iTween.ShakePosition(gameObject, new Vector3(0, 0.1f, 0), 1);
     }
 }

@@ -116,4 +116,15 @@ public class BattlePanel : MonoBehaviour {
         //  attacker.LossHp(1);
         defender.LossHp(damage);
     }
+
+    public void ShakeAll(int exceptId)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var child = transform.GetChild(i);
+            var battleCell = child.GetComponent<BattleCell>();
+            if (battleCell.Id != exceptId)
+                battleCell.Shake();
+        }
+    }
 }
