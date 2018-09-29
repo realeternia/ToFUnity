@@ -876,3 +876,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EffBlood: {fileID: 1146819505375594, guid: 71d466826908ef3429a332187be9e026, type: 2}
+  EffElect: {fileID: 1915438523720812, guid: 7b375acf8f65aba4690019cc348ea457, type: 2}

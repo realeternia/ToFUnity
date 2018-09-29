@@ -8,9 +8,10 @@ public class EffectManager : MonoBehaviour
     public static EffectManager Instance { get { return instance; } }
 
     public GameObject EffBlood;
+    public GameObject EffElect;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
 	{
 	    instance = this;
         Debug.Log("EffectManager.init");
