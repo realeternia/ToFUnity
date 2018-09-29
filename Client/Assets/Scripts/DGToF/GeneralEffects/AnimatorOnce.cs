@@ -5,9 +5,12 @@ using UnityEngine;
 public class AnimatorOnce : MonoBehaviour {
 
     private Animator animator;
+    public float Speed = 1;
+
     void Start()
     {
         animator = this.GetComponent<Animator>();
+        animator.speed = Speed;
     }
 
     void Update()

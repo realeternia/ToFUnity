@@ -113,14 +113,14 @@ public class BattleCell : MonoBehaviour {
     {
         var chessObj = MatchManager.Instance.GetCell(Id);
         chessObj.Pos = posId;
-        transform.localPosition = new Vector3(-1.46f + posId % 5 * 0.7f, 2.45f - posId / 5 * 0.7f, 0);
+        transform.localPosition = new Vector3(-1.53f + posId % 5 * 0.73f, 2.65f - posId / 5 * 0.73f, 0);
     }
 
     public void MoveTo(int posId)
     {
         var chessObj = MatchManager.Instance.GetCell(Id);
         chessObj.Pos = posId;
-        MoveTo(new Vector3(-1.46f + posId % 5 * 0.7f, 2.45f - posId / 5 * 0.7f, 0));
+        MoveTo(new Vector3(-1.53f + posId % 5 * 0.73f, 2.65f - posId / 5 * 0.73f, 0));
     }
 
     private void MoveTo(Vector3 targetPos)
