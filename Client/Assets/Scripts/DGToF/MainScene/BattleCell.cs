@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.DGToF.Control;
+using Assets.Scripts.DGToF.Types;
 using ConfigDatas;
 using UnityEngine;
 
@@ -83,7 +84,8 @@ public class BattleCell : MonoBehaviour {
                 iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
                 StartCoroutine(LateColor());
 
-                panel.ShakeAll(Id);
+                if (monsterConfig.Group == (int)MonsterGroupTypes.King)
+                    panel.ShakeAll(Id);
             }
         }
     }
