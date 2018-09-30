@@ -135,13 +135,11 @@ public class BattleCell : MonoBehaviour {
 
     public bool LossHp(int val)
     {
-        var loss = transform.Find("LossHp").GetComponent<TextFlyHpLoss>();
-        loss.Fly(string.Format("-{0}", val));
-
         var chessObj = MatchManager.Instance.GetCell(Id);
         chessObj.HpLeft -= val;
 
         EffectManager.Instance.AddEffect(EffectManager.Instance.EffBlood, new Vector3(transform.position.x, transform.position.y, 0));
+        EffectManager.Instance.AddTextFly(new Vector3(transform.position.x, transform.position.y, -0.3f), string.Format("-{0}", val));
         if (chessObj.HpLeft <= 0)
         {
             OnDie(chessObj);

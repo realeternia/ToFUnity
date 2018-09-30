@@ -42,12 +42,12 @@ public class BattlePanel : MonoBehaviour {
         if (glowObjIns == null)
         {
             glowObjIns = Instantiate(glowObj, selectCell.transform);
-            glowObjIns.transform.localPosition = new Vector3(0, 0, -.1f);
+            glowObjIns.transform.localPosition = new Vector3(0, 0, -.3f);
         }
         else
         {
             glowObjIns.transform.SetParent(selectCell.transform);
-            glowObjIns.transform.localPosition = new Vector3(0, 0, -.1f);
+            glowObjIns.transform.localPosition = new Vector3(0, 0, -.3f);
         }
     }
 

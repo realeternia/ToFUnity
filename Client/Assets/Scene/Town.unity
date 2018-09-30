@@ -383,6 +383,7 @@ MonoBehaviour:
   EffElect: {fileID: 1915438523720812, guid: 7b375acf8f65aba4690019cc348ea457, type: 2}
   EffFlameFall: {fileID: 1133547438883400, guid: b33c90a7d9ae8424a822c69da36283d1,
     type: 2}
+  FlyText: {fileID: 1118411025150280, guid: 84740026617bbca49b9623f60844b66e, type: 2}
 --- !u!1001 &955459661
 Prefab:
   m_ObjectHideFlags: 0

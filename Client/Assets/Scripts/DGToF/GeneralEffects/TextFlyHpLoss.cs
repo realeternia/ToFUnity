@@ -8,7 +8,7 @@ public class TextFlyHpLoss : MonoBehaviour
     private TextMesh text;
     private Vector3 startPos;
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 	    startPos = transform.localPosition;
         text = transform.GetComponent<TextMesh>();
@@ -57,7 +57,8 @@ public class TextFlyHpLoss : MonoBehaviour
 
     private void OnComplete()
     {
-        text.color = new Color(0, 0, 0, 0);//透明
-
+   //     text.color = new Color(0, 0, 0, 0);//透明
+        this.transform.parent = null; //销毁掉
+        Destroy(gameObject);
     }
 }

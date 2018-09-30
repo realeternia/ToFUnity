@@ -11,6 +11,8 @@ public class EffectManager : MonoBehaviour
     public GameObject EffElect;
     public GameObject EffFlameFall;
 
+    public GameObject FlyText;
+
     // Use this for initialization
     void Start ()
 	{
@@ -26,5 +28,11 @@ public class EffectManager : MonoBehaviour
     public void AddEffect(GameObject eff, Vector3 pos)
     {
         Instantiate(eff, pos, transform.rotation, transform);
+    }
+
+    public void AddTextFly(Vector3 pos, string txt)
+    {
+        var obj = Instantiate(FlyText, pos, transform.rotation, transform);
+        obj.GetComponent<TextFlyHpLoss>().Fly(txt);
     }
 }
