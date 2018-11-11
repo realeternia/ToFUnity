@@ -36,6 +36,11 @@ public class BattleCell : MonoBehaviour {
 
     void OnMouseUp()
     {
+        if (!MatchManager.Instance.PlayerTurn)
+        {
+            return;
+        }
+
         var target = panel.GetShine();
         if (target != gameObject)
         {
@@ -55,16 +60,25 @@ public class BattleCell : MonoBehaviour {
             else
             {
                 if (nowCellInfo.Side == 1)
+                {
                     panel.SetShine(Id); //切换选中框    
+                }
                 else if (nowCellInfo.Side == 2)
+                {
                     panel.Fight(targetCell, this);
+                    MatchManager.Instance.NextTurn();
+                }
                 else //交换位置
+                {
                     panel.ExchangePos(this, targetCell);
+                    MatchManager.Instance.NextTurn();
+                }
             }
         }
         else
         {
             Open();
+            MatchManager.Instance.NextTurn();
         }
     }
 
@@ -91,6 +105,7 @@ public class BattleCell : MonoBehaviour {
 
             if (monsterConfig.Group == (int) MonsterGroupTypes.King)
                 panel.ShakeAll(Id);
+
         }
     }
 

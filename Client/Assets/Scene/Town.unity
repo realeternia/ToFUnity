@@ -841,6 +841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2128382942}
   - component: {fileID: 2128382943}
+  - component: {fileID: 2128382944}
   m_Layer: 0
   m_Name: BattlePanel
   m_TagString: Untagged
@@ -880,3 +881,15 @@ MonoBehaviour:
   cellType: {fileID: 1371743771626460, guid: 1ad8970604f526c4d90013c53a719057, type: 2}
   glowObj: {fileID: 1136801355963758, guid: 5d5744671296ef1438874e206c48b6b3, type: 2}
   glowObjIns: {fileID: 0}
+--- !u!114 &2128382944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128382941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e17523ab73bd24f834c1872aecfb5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 2128382943}

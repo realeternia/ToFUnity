@@ -35,6 +35,8 @@ public class MatchManager {
 
     private List<MatchCellInfo> itemList = new List<MatchCellInfo>();
 
+    public bool PlayerTurn = true;
+
     public void Init()
     {
         foreach (var tacticConfig in ConfigData.BattleTacticDict.Values)
@@ -55,5 +57,15 @@ public class MatchManager {
     public MatchCellInfo GetCell(int id)
     {
         return itemList.Find(p => p.Id == id);
+    }
+
+    public List<MatchCellInfo> GetAll()
+    {
+        return itemList;
+    }
+
+    public void NextTurn()
+    {
+        PlayerTurn = !PlayerTurn;
     }
 }

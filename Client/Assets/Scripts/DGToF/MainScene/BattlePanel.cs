@@ -10,6 +10,8 @@ public class BattlePanel : MonoBehaviour {
 
     public GameObject glowObjIns;
 
+    private AIController aiThink;
+
     // Use this for initialization
     void Start () {
 
@@ -70,31 +72,23 @@ public class BattlePanel : MonoBehaviour {
         return null;
     }
 
+    public void Fight(int attackerId, int defenderId)
+    {
+        var cellA = FindTarget(attackerId);
+        var cellB = FindTarget(defenderId);
+        Fight(cellA.GetComponent<BattleCell>(), cellB.GetComponent<BattleCell>());
+    }
+
     public void Fight(BattleCell attacker, BattleCell defender)
     {
         var midPoint = attacker.transform.position*1/4 + defender.transform.position*3/4;
         Hashtable args = new Hashtable();
 
-        //这里是设置类型，iTween的类型又很多种，在源码中的枚举EaseType中
-        //例如移动的特效，先震动在移动、先后退在移动、先加速在变速、等等
         args.Add("easeType", iTween.EaseType.easeInOutExpo);
 
-        //移动的速度，
-      //  args.Add("speed", 0.3f);
         //移动的整体时间。如果与speed共存那么优先speed
         args.Add("time", 0.7f);
-        //延迟执行时间
         args.Add("delay", 0.1f);
-        //移动的过程中面朝一个点
-     //   args.Add("looktarget", Vector3.zero);
-
-        //三个循环类型 none loop pingPong (一般 循环 来回)	
-        //args.Add("loopType", "none");
-        //args.Add("loopType", "loop");	
-      //  args.Add("loopType", "pingPong");
-
-        //当然也可以写Vector3
-       // args.Add("position", midPoint);
 
         //最终让改对象开始移动
         Vector3[] paths = new Vector3[] {midPoint, attacker.transform.position};
@@ -117,6 +111,13 @@ public class BattlePanel : MonoBehaviour {
             ExchangePos(attacker, defender); //死亡直接交换位置
     }
 
+    public void ExchangePos(int cellAId, int cellBId)
+    {
+        var cellA = FindTarget(cellAId);
+        var cellB = FindTarget(cellBId);
+        ExchangePos(cellA.GetComponent<BattleCell>(), cellB.GetComponent<BattleCell>());
+    }
+
     public void ExchangePos(BattleCell cellA, BattleCell cellB)
     {
         var myPos = MatchManager.Instance.GetCell(cellA.Id).Pos;
@@ -125,9 +126,11 @@ public class BattlePanel : MonoBehaviour {
         cellB.MoveTo(myPos);
     }
 
-    public void Open(BattleCell cellA)
+    public void Open(int cellId)
     {
-        cellA.Open();
+        var cellA = FindTarget(cellId);
+        if (cellA != null)
+            cellA.GetComponent<BattleCell>().Open();
     }
 
     public void ShakeAll(int exceptId)
