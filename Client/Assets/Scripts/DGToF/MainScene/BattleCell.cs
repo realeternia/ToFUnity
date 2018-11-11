@@ -64,29 +64,33 @@ public class BattleCell : MonoBehaviour {
         }
         else
         {
-            var cell = MatchManager.Instance.GetCell(Id);
-            if (cell.IsHide) //翻开
-            {
-                cell.IsHide = false;
+            Open();
+        }
+    }
 
-                transform.Find("Blood").gameObject.SetActive(true);
-                transform.Find("Str").gameObject.SetActive(true);
+    public void Open()
+    {
+        var cell = MatchManager.Instance.GetCell(Id);
+        if (cell.IsHide) //翻开
+        {
+            cell.IsHide = false;
+            transform.Find("Blood").gameObject.SetActive(true);
+            transform.Find("Str").gameObject.SetActive(true);
 
-                MonsterId = cell.MonsterId;
-                MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
-                cell.Str = monsterConfig.Atk;
-                cell.HpLeft = monsterConfig.Hp;
-                //Debug.Log("aaaa" + Id + "aaa" + cell.MonsterId + monsterConfig.Name);
+            MonsterId = cell.MonsterId;
+            MonsterConfig monsterConfig = ConfigData.GetMonsterConfig(MonsterId);
+            cell.Str = monsterConfig.Atk;
+            cell.HpLeft = monsterConfig.Hp;
+            //Debug.Log("aaaa" + Id + "aaa" + cell.MonsterId + monsterConfig.Name);
 
-                transform.GetChild(0).GetComponent<AutoSpriteLoader>().Load(monsterConfig.Url + ".jpg");
-                transform.Find("Race").GetComponent<AutoSpriteLoader>().Load(string.Format("chessg{0}.png", monsterConfig.Group));
-                
-                iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
-                StartCoroutine(LateColor());
+            transform.GetChild(0).GetComponent<AutoSpriteLoader>().Load(monsterConfig.Url + ".jpg");
+            transform.Find("Race").GetComponent<AutoSpriteLoader>().Load(string.Format("chessg{0}.png", monsterConfig.Group));
 
-                if (monsterConfig.Group == (int)MonsterGroupTypes.King)
-                    panel.ShakeAll(Id);
-            }
+            iTween.RotateBy(gameObject, new Vector3(0, 1f, 0), 1);
+            StartCoroutine(LateColor());
+
+            if (monsterConfig.Group == (int) MonsterGroupTypes.King)
+                panel.ShakeAll(Id);
         }
     }
 

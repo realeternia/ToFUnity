@@ -125,6 +125,11 @@ public class BattlePanel : MonoBehaviour {
         cellB.MoveTo(myPos);
     }
 
+    public void Open(BattleCell cellA)
+    {
+        cellA.Open();
+    }
+
     public void ShakeAll(int exceptId)
     {
         for (int i = 0; i < transform.childCount; i++)
