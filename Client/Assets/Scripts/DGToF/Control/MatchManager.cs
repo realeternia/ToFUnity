@@ -80,6 +80,30 @@ public class MatchManager {
         return itemList;
     }
 
+    public List<MatchCellInfo> GetEnemys(int cellId)
+    {
+        var myCell = GetCell(cellId);
+        var besideCells = GetBesides(cellId);
+
+        besideCells.RemoveAll(neibour => neibour.IsHide || neibour.Side == 0 || neibour.Side == myCell.Side);
+        return besideCells;
+    }
+
+    public List<MatchCellInfo> GetBesides(int cellId)
+    {
+        var myCell = GetCell(cellId);
+        List<MatchCellInfo> besideCells = new List<MatchCellInfo>();
+        if (myCell.Pos.X > 0)
+            besideCells.Add(GetCell(cellMap[myCell.Pos.X - 1, myCell.Pos.Y]));
+        if (myCell.Pos.X < GameConst.ColumnCount - 1)
+            besideCells.Add(GetCell(cellMap[myCell.Pos.X + 1, myCell.Pos.Y]));
+        if (myCell.Pos.Y > 0)
+            besideCells.Add(GetCell(cellMap[myCell.Pos.X, myCell.Pos.Y - 1]));
+        if (myCell.Pos.Y < GameConst.RowCount - 1)
+            besideCells.Add(GetCell(cellMap[myCell.Pos.X, myCell.Pos.Y + 1]));
+        return besideCells;
+    }
+
     public void NextTurn()
     {
         PlayerTurn = !PlayerTurn;
