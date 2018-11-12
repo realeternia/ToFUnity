@@ -10,23 +10,18 @@ public class BattlePanel : MonoBehaviour {
 
     public GameObject glowObjIns;
 
-    private AIController aiThink;
-
     // Use this for initialization
     void Start () {
 
         MatchManager.Instance.Init();
-        for (int i = 0; i < 5; i++)
+        foreach (var cellItem in MatchManager.Instance.GetAll())
         {
-            for (int j = 0; j < 7; j++)
-            {
-                var appleGO = Instantiate(cellType, transform);
-                var cell = appleGO.GetComponent<BattleCell>();
-                cell.Id = MatchManager.Instance.GetCellPos(i * 7 + j).Id;
-                cell.UpdatePos(i * 7 + j);
-            }
+            var objGO = Instantiate(cellType, transform);
+            var cell = objGO.GetComponent<BattleCell>();
+            cell.Id = cellItem.Id;
+            objGO.transform.localPosition = new Vector3(-1.53f + cellItem.Pos % 5 * 0.73f, 2.65f - cellItem.Pos / 5 * 0.73f, 0);
         }
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -124,6 +119,8 @@ public class BattlePanel : MonoBehaviour {
         var tarPos = MatchManager.Instance.GetCell(cellB.Id).Pos;
         cellA.MoveTo(tarPos);
         cellB.MoveTo(myPos);
+        print("exs");
+        MatchManager.Instance.ExchangePos(cellA.Id, cellB.Id);
     }
 
     public void Open(int cellId)

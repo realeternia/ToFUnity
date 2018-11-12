@@ -16,6 +16,7 @@ public class BattleCell : MonoBehaviour {
     public int MonsterId;
 
     private BattlePanel panel;
+
     // Use this for initialization
     void Start () {
         render = GetComponent<SpriteRenderer>();
@@ -31,54 +32,45 @@ public class BattleCell : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
 
-    void OnMouseUp()
+    }
+
+    void OnMouseOver()
     {
-        if (!MatchManager.Instance.PlayerTurn)
+        if (Input.GetMouseButtonUp(0))
         {
-            return;
+            panel.SetShine(Id); //先给选中框  
         }
-
-        var target = panel.GetShine();
-        if (target != gameObject)
+        if (Input.GetMouseButtonUp(1))
         {
-            if (target == null)
+            if (MatchManager.Instance.PlayerTurn)
             {
-                panel.SetShine(Id); //先给选中框    
-                return;
-            }
+                var target = panel.GetShine();
+                if (target == null) //无法空操作
+                    return;
 
-            var targetCell = target.GetComponent<BattleCell>();
-            var nowCellInfo = MatchManager.Instance.GetCell(Id);
-            //    Debug.Log(string.Format("state id={0} side={1} hide={2}", nowCellInfo.Id, nowCellInfo.Side, nowCellInfo.IsHide));
-            if (nowCellInfo.IsHide)
-            {
-                panel.SetShine(Id); //先给选中框    
-            }
-            else
-            {
-                if (nowCellInfo.Side == 1)
+                if (target != gameObject)
                 {
-                    panel.SetShine(Id); //切换选中框    
+                    var targetCell = target.GetComponent<BattleCell>();
+                    var nowCellInfo = MatchManager.Instance.GetCell(Id);
+                    //   Debug.Log(string.Format("state id={0} side={1} hide={2}", nowCellInfo.Id, nowCellInfo.Side, nowCellInfo.IsHide));
+                    if (!nowCellInfo.IsHide && nowCellInfo.Side == 2)
+                    {
+                        panel.Fight(targetCell, this);
+                        MatchManager.Instance.NextTurn();
+                    }
+                    else //交换位置
+                    {
+                        panel.ExchangePos(this, targetCell);
+                        MatchManager.Instance.NextTurn();
+                    }
                 }
-                else if (nowCellInfo.Side == 2)
+                else
                 {
-                    panel.Fight(targetCell, this);
-                    MatchManager.Instance.NextTurn();
-                }
-                else //交换位置
-                {
-                    panel.ExchangePos(this, targetCell);
+                    Open();
                     MatchManager.Instance.NextTurn();
                 }
             }
-        }
-        else
-        {
-            Open();
-            MatchManager.Instance.NextTurn();
         }
     }
 
@@ -119,17 +111,8 @@ public class BattleCell : MonoBehaviour {
             render.color = Color.red;
     }
 
-    public void UpdatePos(int posId)
-    {
-        var chessObj = MatchManager.Instance.GetCell(Id);
-        chessObj.Pos = posId;
-        transform.localPosition = new Vector3(-1.53f + posId % 5 * 0.73f, 2.65f - posId / 5 * 0.73f, 0);
-    }
-
     public void MoveTo(int posId)
     {
-        var chessObj = MatchManager.Instance.GetCell(Id);
-        chessObj.Pos = posId;
         MoveTo(new Vector3(-1.53f + posId % 5 * 0.73f, 2.65f - posId / 5 * 0.73f, 0));
     }
 

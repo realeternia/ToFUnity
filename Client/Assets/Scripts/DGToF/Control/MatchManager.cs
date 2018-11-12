@@ -59,6 +59,15 @@ public class MatchManager {
         return itemList.Find(p => p.Id == id);
     }
 
+    public void ExchangePos(int cellAId, int cellBId)
+    {
+        var cellA = GetCell(cellAId);
+        var cellB = GetCell(cellBId);
+        var posA = cellA.Pos;
+        cellA.Pos = cellB.Pos;
+        cellB.Pos = posA;
+    }
+
     public List<MatchCellInfo> GetAll()
     {
         return itemList;
