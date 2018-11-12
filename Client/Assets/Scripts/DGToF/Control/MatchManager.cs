@@ -12,7 +12,7 @@ public class MatchManager {
     public class MatchCellInfo
     {
         public int Id;
-        public int Pos;
+        public NarlonLib.Math.Vector2 Pos;
         public byte Side; //1 & 2
         public int MonsterId;
 
@@ -34,6 +34,7 @@ public class MatchManager {
     }
 
     private List<MatchCellInfo> itemList = new List<MatchCellInfo>();
+    private int[,] cellMap = new int[GameConst.ColumnCount, GameConst.RowCount]; //位置映射
 
     public bool PlayerTurn = true;
 
@@ -46,11 +47,14 @@ public class MatchManager {
         }
         ArraysUtils.RandomShuffle(itemList);
 
-        for (int i = 0; i < 35; i++)
-            itemList[i].Pos = i;
+        for (int i = 0; i < GameConst.RowCount; i++)
+        {
+            itemList[i].Pos = new NarlonLib.Math.Vector2(i % GameConst.ColumnCount, i / GameConst.ColumnCount);
+            cellMap[itemList[i].Pos.X, itemList[i].Pos.Y] = itemList[i].Id;
+        }
     }
 
-    public MatchCellInfo GetCellPos(int pos)
+    public MatchCellInfo GetCellPos(NarlonLib.Math.Vector2 pos)
     {
         return itemList.Find(p => p.Pos == pos);
     }
@@ -66,6 +70,9 @@ public class MatchManager {
         var posA = cellA.Pos;
         cellA.Pos = cellB.Pos;
         cellB.Pos = posA;
+
+        cellMap[cellA.Pos.X, cellA.Pos.Y] = cellA.Id;
+        cellMap[cellB.Pos.X, cellB.Pos.Y] = cellB.Id;
     }
 
     public List<MatchCellInfo> GetAll()

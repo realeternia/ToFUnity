@@ -111,9 +111,9 @@ public class BattleCell : MonoBehaviour {
             render.color = Color.red;
     }
 
-    public void MoveTo(int posId)
+    public void MoveTo(NarlonLib.Math.Vector2 pos)
     {
-        MoveTo(new Vector3(-1.53f + posId % 5 * 0.73f, 2.65f - posId / 5 * 0.73f, 0));
+        MoveTo(new Vector3(-1.53f + pos.X * 0.73f, 2.65f - pos.Y * 0.73f, 0));
     }
 
     private void MoveTo(Vector3 targetPos)

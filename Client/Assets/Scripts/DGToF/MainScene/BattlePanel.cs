@@ -19,7 +19,7 @@ public class BattlePanel : MonoBehaviour {
             var objGO = Instantiate(cellType, transform);
             var cell = objGO.GetComponent<BattleCell>();
             cell.Id = cellItem.Id;
-            objGO.transform.localPosition = new Vector3(-1.53f + cellItem.Pos % 5 * 0.73f, 2.65f - cellItem.Pos / 5 * 0.73f, 0);
+            objGO.transform.localPosition = new Vector3(-1.53f + cellItem.Pos.X * 0.73f, 2.65f - cellItem.Pos.Y* 0.73f, 0);
         }
     }
 	
@@ -119,7 +119,6 @@ public class BattlePanel : MonoBehaviour {
         var tarPos = MatchManager.Instance.GetCell(cellB.Id).Pos;
         cellA.MoveTo(tarPos);
         cellB.MoveTo(myPos);
-        print("exs");
         MatchManager.Instance.ExchangePos(cellA.Id, cellB.Id);
     }
 
